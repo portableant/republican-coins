@@ -5,7 +5,7 @@
     {
       "name": "Roman Republican Coins",
       "format": "LINKED_PLACES",
-      "src": "./data/republic.geojson",
+      "src": "./data/republican.geojson",
       "attribution": "Roman Republican Coins CC-BY Portable Antiquities Scheme Contributors"
     }
   ],
