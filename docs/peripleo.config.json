@@ -10,11 +10,21 @@
     }
   ],
   "facets": [
-    "denomination",
-    "mint",
-    "ruler",
-    "moneyer",
-    "materialTerm"
+    {
+      "name": "Denomination", "path": ["properties", "denomination"]
+    },
+    {
+      "name": "Mint", "path": ["properties", "mint"]
+    },
+    {
+      "name": "Issuer", "path": ["properties", "ruler"]
+    },
+    {
+      "name": "Moneyer", "path": ["properties", "moneyer"]
+    },
+    {
+      "name": "Material", "path": ["properties", "materialTerm"]
+    }
   ],
   "link_icons": [
     { "pattern": "maps.google.com",  "img": "./logos/maps.google.com.png", "label": "Google Maps" },
