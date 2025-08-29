@@ -3,9 +3,9 @@ import cv2
 
 # --- Configuration ---
 # The folder where your combined coin images are located
-input_folder = '../images'
+input_folder = '../docs/data/images'
 # The folder where the split images will be saved
-output_folder = '../split_images'
+output_folder = '../data/split_images'
 
 # --- Main Script ---
 # Create the output folder if it doesn't exist
