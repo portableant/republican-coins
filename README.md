@@ -85,7 +85,7 @@ python geocode.py
 
 ## Generate LinkedPasts geojson
 
-To generate LinkedPasts geojson for use within the Peripleo instance we want to run, you can run the following command. This takes the geocoded csv file and manipulates it to meet the required structure - indexing, features with the correct structure including properties, links, depictions and types.
+To generate [LinkedPasts geojson](https://github.com/LinkedPasts/linked-places-format) for use within the Peripleo instance we want to run, you can run the following command. This takes the geocoded csv file and manipulates it to meet the required structure - indexing, features with the correct structure including properties, links, depictions and types.
 
 ```python
 python createLPgeoJson.py
@@ -97,9 +97,89 @@ All the work for linked data and RDF was done in around 2010-2013 and is discuss
 * [Portable Antiquities on the Web](https://museologi.st/papers/portable-antiquities-on-the-web/)
 * [Semantic Web Technologies Applied to Numismatic Collections](https://museologi.st/papers/semantic-web-technologies-applied-to-numismatic-collections/)
 
+So one feature will look something like this:
+
+```geojson
+{
+      "@id": "https://finds.org.uk/database/artefacts/record/id/1227572",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.44280915,
+          52.45778299
+        ]
+      },
+      "properties": {
+        "findIdentifier": "finds-1227572",
+        "objecttype": "COIN",
+        "broadperiod": "ROMAN",
+        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19",
+        "county": "Norfolk",
+        "district": "South Norfolk",
+        "parish": "Ditchingham",
+        "knownas": "",
+        "ruler": "Republic",
+        "moneyer": "Antonius, M.",
+        "denomination": "Denarius (Roman Republic)",
+        "mint": "Moving with Republican issuer",
+        "manufacture": "Struck or hammered",
+        "rrcType": null,
+        "rrcID": "rrc-544.19",
+        "nomismaIssuer": "",
+        "nomismaMint": "",
+        "pleiadesID": "",
+        "issuerDbPedia": "",
+        "metal": null,
+        "materialTerm": "Silver",
+        "weight": "3.23",
+        "date_from": null,
+        "date_to": null,
+        "institution": "NMS",
+        "created": "2025"
+      },
+      "descriptions": [
+        {
+          "value": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19"
+        }
+      ],
+      "types": [
+        {
+          "identifier": "https://nomisma.org/id/rrc-544.19",
+          "label": "Nomisma type: rrc-544.19"
+        }
+      ],
+      "when": {
+        "timespans": [
+          {
+            "start": {
+              "in": "32.0"
+            },
+            "end": {
+              "in": "31.0"
+            }
+          }
+        ],
+        "periods": [
+          {
+            "name": "Roman Republican 510 BC - 27 BC",
+            "uri": "http://n2t.net/ark:/99152/p08m57h65c8"
+          }
+        ],
+        "label": "for a century during the Roman period",
+        "certainty": "certain",
+        "duration": "P100Y"
+      }
+    }
+```
+
+## Data cleaning and enrichment
+
+These data are varied in quality, FLOs are not numismatists and there's lots of holes and dirty data. To make this an excellent resource, the csv download could be cleaned and enriched automatically from nomisma and other resources. Maybe I'll write some scripts for this later.
+
 ## Getting Peripleo working
 
-To map these data and provide a visualisation tool, I am using the Peripleo framework that was created for Locating a National Collection. This is well documented for setup and runs on Github pages direct from the docs folder. It is therefore served for free and uses a custom URL to link semantically with other work I have done. 
+To map these data and provide a visualisation tool, I am using the Peripleo framework that was created for Locating a National Collection. This is well documented for setup and runs on Github pages direct from the docs folder. It is therefore served for free and uses a custom URL to link semantically with other work I have done. Documentation for that is found in the [README](peripleo/README.md) in the peripleo folder.
 
 # Proof of concept Machine Learning for RRC IDs
 
