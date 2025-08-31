@@ -70,9 +70,7 @@ const Loading = props => {
             {welcome}
           </ReactMarkdown>
         }
-         <img 
-            className="logo-image"
-            src="startup-logo.svg" />
+       
         <ProgressBar progress={props.state.progress} />        
         
         <p className="p6o-loading-stage">
