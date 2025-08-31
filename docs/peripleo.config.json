@@ -24,7 +24,9 @@
     },
     {
       "name": "Material", "path": ["properties", "materialTerm"]
-    }
+    },
+    "has_image",
+    "type"
   ],
   "link_icons": [
     { "pattern": "en.wikipedia.org", "img": "./logos/en.wikipedia.org.png", "label": "Wikipedia" },
