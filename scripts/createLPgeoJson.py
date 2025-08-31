@@ -71,7 +71,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "manufacture": row.get('manufactureTerm'),
                             "rrcType": row.get('rrcType'),
                             "rrcID": row.get('rrcID'),
-                            "reeecID": row.get('reeceID').
+                            "reeceID": row.get('reeceID').
                             "nomismaIssuer": row.get('rulerNomisma'),
                             "nomismaMint": row.get('nomismaMintID'),
                             "pleiadesID": row.get('pleiadesID'),
