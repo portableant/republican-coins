@@ -2,7 +2,7 @@
 
 ![A screenshot of the Peripleo instance that holds the coin data I scraped](data/republican-peripleo.png)
 
-> This work is dedicated to Sam Moorhead, who inspired so many with Roman numismatics, notes on the back of pieces of paper and bored us all with Reece Periods at every coin conference, PAS meeting and canteen lunch. He got his way, they are in Nomisma, PAS and beyond.
+> This work is dedicated to Sam Moorhead, who inspired so many with Roman numismatics, notes on the back of pieces of paper and bored us all with [Reece Periods](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0092.1984.tb00326.x) at every coin conference, PAS meeting and canteen lunch. He got his way, they are in Nomisma, PAS and beyond. Richard Reece's lectures at UCL were always entertaining, not sure I always understood them...
 
 This repository holds data and scripts for working with Roman coins from Reece Period 1 on the [Portable Antiquities Scheme](https://finds.org.uk/database) and 
 mapping them onto an instance of Peripleo. I have created all of this for the [2025 European Coin Find Network XII Annual Meeting](https://fundmuenzen.org/2025/08/22/ecfn-2025-final-programme/) being held at my former place of study, UCL Institute of Archaeology, where I'm giving a talk called 'Peripleo and PAS Republican coins: powered by an army of elves since 2003'. 
