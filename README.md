@@ -144,7 +144,7 @@ So one feature will look something like this:
       },
       "descriptions": [
         {
-          "value": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19"
+          "value": "A Roman silver Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1). ;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19"
         }
       ],
       "types": [
