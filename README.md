@@ -26,6 +26,15 @@ I wanted images and data from the system and geographical context, so I wrote a 
 - Create a ML model for coin identification
 - Provide an example of running the scripts
 
+## AI generated social preview card
+
+This social preview card with nonsense coins on was generated with Google Gemini using this prompt:
+
+> Create me a social preview card with a map of England with Roman Republican coins imposed on it, with the text 'Exploring Roman coins from Reece Period 1'
+
+![A social preview card](docs/images/social-card.png)
+
+
 ## Installation for Python scripts
 
 To run the python code I recommend using a virtual environment and then run the code snippets in the appropriate sections. The libraries you will need include: OpenCV, tensorflow, Numpy, Pandas and a few others. 
@@ -81,7 +90,9 @@ To generate LinkedPasts geojson for use within the Peripleo instance we want to 
 ```python
 python createLPgeoJson.py
 ``` 
-This dataset is well structured and I didn't need to go off and find additional data. The IDs for linked open data already exist - this is a product of LAWDI and NOMISMA - and we have access to pleiadesID, dbPediaID, VIAF and Nomisma IDs (and WOEID and OS IDs, but hey, they went...) All the work for linked data and RDF was done in around 2010-2013 and is discussed in these papers:
+This dataset is well structured and I didn't need to go off and find additional data. The IDs for linked open data already exist - this is a product of LAWDI and NOMISMA - and we have access to pleiadesID, dbPediaID, Wikidata, VIAF and Nomisma IDs (and WOEID and OS IDs, but hey, they went...) Time period is linked to a Periodo identifier. 
+
+All the work for linked data and RDF was done in around 2010-2013 and is discussed in these papers:
 * [Linking Portable Antiquities to a wider web](https://museologi.st/papers/linking-portable-antiquities-to-a-wider-web/)
 * [Portable Antiquities on the Web](https://museologi.st/papers/portable-antiquities-on-the-web/)
 * [Semantic Web Technologies Applied to Numismatic Collections](https://museologi.st/papers/semantic-web-technologies-applied-to-numismatic-collections/)
