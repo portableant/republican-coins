@@ -144,7 +144,7 @@ So one feature will look something like this:
       },
       "descriptions": [
         {
-          "value": "A Roman silver Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1). ;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19"
+          "value": "A Roman silver Republican denarius of Mark Antony (43-31& BC) dating to 32-31 BC (Reece Period 1). ;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19"
         }
       ],
       "types": [
@@ -157,10 +157,10 @@ So one feature will look something like this:
         "timespans": [
           {
             "start": {
-              "in": "32.0"
+              "in": "-32"
             },
             "end": {
-              "in": "31.0"
+              "in": "-31"
             }
           }
         ],
