@@ -61,7 +61,7 @@ python records.py
 ## Download images
 
 To download images of the coins, run the following command, some will fail as they are either missing or inaccessible (how that happened...) 
-Some can be got from wikicommons if you fancy some manual searching. 
+Some can be got from wikicommons if you fancy some manual searching. They have done a mighty job saving images on there - but are now [encountering the cloudflare issue](https://commons.wikimedia.org/wiki/Commons:Batch_uploading/Portable_Antiquities_Scheme).
 
 ```python
 python images.py
