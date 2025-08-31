@@ -71,6 +71,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "manufacture": row.get('manufactureTerm'),
                             "rrcType": row.get('rrcType'),
                             "rrcID": row.get('rrcID'),
+                            "reeecID": row.get('reeceID').
                             "nomismaIssuer": row.get('rulerNomisma'),
                             "nomismaMint": row.get('nomismaMintID'),
                             "pleiadesID": row.get('pleiadesID'),
@@ -146,6 +147,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                     moneyer_id = row.get('moneyerID', '').strip()
                     dbpedia_issuer = row.get('rulerDbpedia', '').strip()    
                     nomisma_issuer = row.get('rulerNomisma', '').strip()
+                    nomisma_reece_period = row.get('reeceID', '').strip()
                     if nomisma_issuer:
                         links.append({
                             "identifier": f"https://nomisma.org/id/{nomisma_issuer}",
@@ -164,6 +166,12 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "type": "seeAlso",
                             "label": f"Nomisma mint {nomisma_mint_id}"
                         })
+                    if(nomisma_reece_id):
+                        links.append({
+                            "identifier": f"https://nomisma.org/id/{nomisma_reece_id}",
+                            "type": "seeAlso",
+                            "label": "Nomisma Reece Period 1"
+                        })
                     if moneyer_id:
                         links.append({
                             "identifier": f"https://nomisma.org/id/{moneyer_id}",
@@ -174,7 +182,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         links.append({
                             "identifier": f"https://dbpedia.org/resource/{dbpedia_issuer}",
                             "type": "seeAlso",
-                            "label": f"DBpedia ruler {dbpedia_issuer}"
+                            "label": f"DBpedia resource for  {dbpedia_issuer}"
                         })
                     if links:
                         feature['links'] = links
