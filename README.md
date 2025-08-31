@@ -99,6 +99,83 @@ All the work for linked data and RDF was done in around 2010-2013 and is discuss
 
 So one feature will look something like this:
 
+```txt
+{
+      "@id": "https://finds.org.uk/database/artefacts/record/id/1227572",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.44280915,
+          52.45778299
+        ]
+      },
+      "properties": {
+        "findIdentifier": "finds-1227572",
+        "objecttype": "COIN",
+        "broadperiod": "ROMAN",
+        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19",
+        "county": "Norfolk",
+        "district": "South Norfolk",
+        "parish": "Ditchingham",
+        "knownas": "",
+        "ruler": "Republic",
+        "moneyer": "Antonius, M.",
+        "denomination": "Denarius (Roman Republic)",
+        "mint": "Moving with Republican issuer",
+        "manufacture": "Struck or hammered",
+        "rrcType": null,
+        "rrcID": "rrc-544.19",
+        "nomismaIssuer": "",
+        "nomismaMint": "",
+        "pleiadesID": "",
+        "issuerDbPedia": "",
+        "metal": null,
+        "materialTerm": "Silver",
+        "weight": "3.23",
+        "date_from": null,
+        "date_to": null,
+        "institution": "NMS",
+        "created": "2025"
+      },
+      "descriptions": [
+        {
+          "value": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19"
+        }
+      ],
+      "types": [
+        {
+          "identifier": "https://nomisma.org/id/rrc-544.19",
+          "label": "Nomisma type: rrc-544.19"
+        }
+      ],
+      "when": {
+        "timespans": [
+          {
+            "start": {
+              "in": "32.0"
+            },
+            "end": {
+              "in": "31.0"
+            }
+          }
+        ],
+        "periods": [
+          {
+            "name": "Roman Republican 510 BC - 27 BC",
+            "uri": "http://n2t.net/ark:/99152/p08m57h65c8"
+          }
+        ],
+        "label": "for a century during the Roman period",
+        "certainty": "certain",
+        "duration": "P100Y"
+      }
+    }
+```
+
+And rendered here as geoJSON:
+
+
 ```geojson
 {
       "@id": "https://finds.org.uk/database/artefacts/record/id/1227572",
@@ -172,6 +249,7 @@ So one feature will look something like this:
       }
     }
 ```
+
 
 ## Data cleaning and enrichment
 
