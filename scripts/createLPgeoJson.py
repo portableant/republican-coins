@@ -56,6 +56,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         },
                         "properties": {
                             "findIdentifier": row.get('findIdentifier'),
+                            "oldFindID": row.get('old_findID'),
                             "objecttype": row.get('objecttype'),
                             "broadperiod": row.get('broadperiod'),
                             "description": row.get('description'),
@@ -111,9 +112,9 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             }
                         ]
                     # Add 'when' key only if 'fromDate' is present
-                    from_date = row.get('fromdate', '').strip()
+                    from_date = row.get('fromdate', '').strip().split('.')[0]
                     if from_date:
-                        to_date = row.get('todate', '').strip()
+                        to_date = row.get('todate', '').strip().split('.')[0]
                         if to_date:
                             feature['when'] = {
                                 "timespans": [
