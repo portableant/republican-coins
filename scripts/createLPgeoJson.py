@@ -106,10 +106,37 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                     if rrc_id:
                         feature['types'] = [
                             {
-                                "identifier": f"https://nomisma.org/id/{rrc_id}",
-                                "label": "Nomisma type"
+                                "identifier": f"https://nomisma.org/id/{rrc_id.lower()}",
+                                "label": f"Nomisma type: {rrc_id.lower()}"
                             }
                         ]
+                    # Add 'when' key only if 'fromDate' is present
+                    from_date = row.get('fromdate', '').strip()
+                    if from_date:
+                        to_date = row.get('todate', '').strip()
+                        if to_date:
+                            feature['when'] = {
+                                "timespans": [
+                                    {
+                                        "start": {
+                                            "in": f"{from_date}" if from_date else ""
+                                        },
+                                        "end": {
+                                            "in": f"{to_date}" if to_date else "",
+                                        }
+                                    }
+                                ],
+                                "periods": [
+                                    {
+                                        "name": "Roman Republican 510 BC - 27 BC",
+                                        "uri": "http://n2t.net/ark:/99152/p08m57h65c8"
+                                    }
+                                ],
+                                "label": "for a century during the Roman period",
+                                "certainty": "certain",
+                                "duration": "P100Y"
+                            }
+
                     links = []
                     pleiades_id = row.get('pleiadesID', '').strip()
                     if pleiades_id and pleiades_id.replace('.', '', 1).isdigit():

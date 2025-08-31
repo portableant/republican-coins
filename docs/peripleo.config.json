@@ -27,11 +27,10 @@
     }
   ],
   "link_icons": [
-    { "pattern": "maps.google.com",  "img": "./logos/maps.google.com.png", "label": "Google Maps" },
-    { "pattern": "www.geograph.org.uk", "img": "./logos/geograph.org.png", "label": "Geograph" },
     { "pattern": "en.wikipedia.org", "img": "./logos/en.wikipedia.org.png", "label": "Wikipedia" },
-    { "pattern": "www.wikidata.org", "img": null, "label": "Wikidata" },
-    { "pattern": "www.geonames.org", "img": null, "label": "GeoNames" },
-    { "pattern": "sws.geonames.org", "img": null, "label": "GeoNames" }
+    { "pattern": "pleiades.stoa.org", "img": "./logos/pleiades.png", "label": "Pleiades" },
+    { "pattern": "nomisma.org", "img": "./logos/nomisma.png", "label": "Nomisma" },
+    { "pattern": "viaf.org", "img": "./logos/viaf.png", "label": "VIAF" },
+    { "pattern": "dbpedia.org", "img": "./logos/dbpedia.png", "label": "Dbpedia" }
   ]
 }
