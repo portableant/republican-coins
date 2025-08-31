@@ -79,8 +79,8 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "metal": row.get('metal'),
                             "materialTerm": row.get('materialTerm'),
                             "weight": row.get('weight'),
-                            "date_from": row.get('fromDate'),
-                            "date_to": row.get('toDate'),
+                            "date_from": row.get('fromdate'),
+                            "date_to": row.get('todate'),
                             "institution": row.get('institution'),
                             "created": created_year,
                         }
