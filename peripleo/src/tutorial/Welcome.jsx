@@ -25,7 +25,7 @@ const Welcome = props => {
         <p>
           Welcome to this instance of Peripleo, originally developed for 
           the <strong>Locating a National Collection</strong> project. 
-          This tool shows Roman Reece Period coins from the Portable Antiquities Scheme.
+          This tool shows Historic England's Heritage at Risk Data set.
           Take the tour to learn about the main user interface elements.
         </p>
         

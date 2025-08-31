@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    filename: 'peripleo-republican-coins.js',
+    filename: 'peripleo-heritage-at-risk.js',
     path: path.resolve(__dirname, 'docs'),
   },
   resolve: {

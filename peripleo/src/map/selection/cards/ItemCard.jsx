@@ -18,17 +18,12 @@ import useSearch from '../../../state/search/useSearch';
 import FullscreenImage from './FullscreenImage';
 
 const highlight = (text, query) => {
-  if (!query) return text;
+  if (!query)
+    return text;
 
   const parts = text.split(new RegExp(`(${query})`, 'gi'));
-  return parts
-    .map((part, idx) =>
-      part.toLowerCase() === query.toLowerCase()
-        ? `<mark>${part}</mark>`
-        : part
-    )
-    .join('');
-};
+  return parts.map((part, idx) => part.toLowerCase() === query.toLowerCase() ? `<mark>${part}</mark>` : part).join('');
+}
 
 const ItemCard = props => {
   const el = useRef();
@@ -37,7 +32,7 @@ const ItemCard = props => {
 
   const { store } = useContext(StoreContext);
 
-  const [showLightbox, setShowLightbox] = useState(false);
+  const [ showLightbox, setShowLightbox ] = useState(false);
 
   const { node } = props;
 
@@ -45,98 +40,124 @@ const ItemCard = props => {
     if (el.current) {
       el.current.querySelector('header button').blur();
     }
-  }, [el.current]);
+  }, [ el.current ]);
 
   const image = getPreviewImage(node);
 
   const descriptions = getDescriptions(node);
 
-  const sourceUrl = node.properties?.url || node?.identifier || node.id;
+  const sourceUrl = 
+    node.properties?.url || node?.identifier || node.id;
 
   const when = parseWhen(node.properties?.when || node.when);
 
   const connectedNodes = store.getConnectedNodes(node.id);
 
-  const blockList = props.config.link_icons
-    ?.filter(p => !p.img)
-    .map(p => p.pattern);
+  const blockList = props.config.link_icons?.filter(p => !p.img).map(p => p.pattern);
 
-  const externalLinks = blockList
-    ? store.getExternalLinks(node.id).filter(l => {
-        const id = l.identifier || l.id;
-        return !blockList.find(pattern => id.includes(pattern));
-      })
-    : store.getExternalLinks(node.id);
+  const externalLinks = blockList ? 
+    store.getExternalLinks(node.id).filter(l => {
+      const id = l.identifier || l.id;
+      return !blockList.find(pattern => id.includes(pattern));
+    }) : store.getExternalLinks(node.id);
 
   // Related items includes external + internal links!
-  const connected = [...connectedNodes, ...externalLinks];
+  const connected = [
+    ...connectedNodes,
+    ...externalLinks
+  ];
 
-  const goTo = () =>
-    props.onGoTo({
-      referrer: props,
-      nodeList: connected,
-    });
-
-  const tagNav = () => GoogleAnalytics.tagNavigation(sourceUrl);
+  const goTo = () => props.onGoTo({
+    referrer: props,
+    nodeList: connected
+  });
+  
+  const tagNav = () => 
+    GoogleAnalytics.tagNavigation(sourceUrl);
 
   // Temporary hack!
-  const color = SIGNATURE_COLOR[8];
+  const color = SIGNATURE_COLOR[8]; 
 
   return (
-    <div ref={el} className="p6o-selection-card p6o-selection-itemcard">
-      <header
+    <div 
+      ref={el}
+      className="p6o-selection-card p6o-selection-itemcard">
+      <header 
         aria-disabled
-        style={{
+        style={{ 
           backgroundColor: color,
-          justifyContent: props.backButton ? 'space-between' : 'flex-end',
-        }}
-      >
-        {props.backButton && (
-          <button aria-label="Go Back" onClick={props.onGoBack}>
+          justifyContent: props.backButton ? 'space-between' : 'flex-end'
+        }}>
+        
+        {props.backButton && 
+          <button
+            aria-label="Go Back"
+            onClick={props.onGoBack}>
             <IoArrowBackOutline />
           </button>
-        )}
+        }
 
-        <button aria-label="Close" onClick={props.onClose}>
+        <button
+          aria-label="Close"
+          onClick={props.onClose}>
           <IoCloseSharp />
         </button>
       </header>
-      <div
+      <div 
         className="p6o-selection-content"
-        style={{ maxHeight: `${window.innerHeight - 46}px` }}
-      >
-        {image && (
-          <div
+        style={{ maxHeight: `${window.innerHeight - 46}px` }}>
+        {image &&
+          <div 
             className="p6o-selection-header-image"
-            style={{ backgroundImage: `url("${image.src}")` }}
-          >
-            {image.accreditation && (
-              <span className="p6o-selection-header-image-accreditation">
-                {image.accreditation}
-              </span>
-            )}
+            style={{ backgroundImage: `url("${image.src}")` }}>   
 
-            <button
+            {image.accreditation &&
+              <span 
+                className="p6o-selection-header-image-accreditation">{image.accreditation}</span> 
+            }
+
+            <button 
               className="p6o-selection-header-image-btn-full"
-              onClick={() => setShowLightbox(true)}
-            >
+              onClick={() => setShowLightbox(true) }>
               <CgArrowsExpandRight />
             </button>
-          </div>
-        )}
+          </div> 
+        }
 
-        <main role="region" aria-live="polite">
-          <div className="p6o-selection-main-fixed">
-            <div className="p6o-source-link">
+        <main
+          role="region" 
+          aria-live="polite">
+          
+          <div
+            className="p6o-selection-main-fixed">
+
+            <div
+              className="p6o-source-link"
+              onClick={() => window.open(sourceUrl, '_blank')}
+            >
               <h1>
-                <a href={sourceUrl} target="_blank" onClick={tagNav}>
+                <a
+                  href={sourceUrl}
+                  target="_blank"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    tagNav(e);
+                  }}
+                >
                   {node.title}
                 </a>
               </h1>
 
               <h2>
-                <a href={sourceUrl} target="_blank" onClick={tagNav}>
-                  View page on {node.dataset}
+                <a
+                  href={sourceUrl}
+                  target="_blank"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    tagNav(e);
+                  }}
+                >
+                  View page on the Portable Antiquities Scheme Database
                   <RiExternalLinkLine />
                 </a>
               </h2>
@@ -144,66 +165,63 @@ const ItemCard = props => {
               <a
                 href={sourceUrl}
                 className="p6o-new-tab-hint"
-                onClick={tagNav}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  tagNav(e);
+                }}
                 target="_blank"
               >
                 Link opens a new tab
               </a>
             </div>
 
-            <p
-              className="p6o-node-types"
-              dangerouslySetInnerHTML={{
-                __html: getTypes(node)
-                  .map(
-                    type =>
-                      `<a href="${type.identifier}" target="_blank">${type.label}</a>`
-                  )
-                  .join('<br /> '),
-              }}
-            />
+            <p className="p6o-node-types" dangerouslySetInnerHTML={{ __html: getTypes(node).map(type => `<a href="${type.identifier}" target="_blank">${type.label}</a>`).join('<br /> ') }} />
 
-            {when && (
+
+            {when && 
               <p className="when">
                 <strong>Timespan:</strong> {when.label}
               </p>
-            )}
+            }
           </div>
 
           <div className="p6o-selection-main-flex">
-            {descriptions.map((d, idx) => (
-              <p
-                key={idx}
+            {descriptions.map((d, idx) => 
+              <p key={idx} 
                 className="p6o-selection-description"
                 aria-level={3}
                 dangerouslySetInnerHTML={{
-                  __html: highlight(sanitize(d), search?.query),
-                }}
-              ></p>
-            ))}
+                  __html: highlight(sanitize(d), search?.query)
+                }}>
+                {}
+              </p>
+            )}
           </div>
         </main>
 
         <footer aria-live={true}>
-          {connected.length > 0 ? (
-            <div className="p6o-selection-related-records">
-              <button onClick={goTo}>
+          {connected.length > 0 ?
+            <div
+              className="p6o-selection-related-records">
+              <button onClick={goTo} >
                 <BiLink /> <span>{connected.length} Related Web Resources</span>
               </button>
-            </div>
-          ) : (
-            <div className="p6o-selection-related-records disabled">
+            </div> :
+
+            <div
+              className="p6o-selection-related-records disabled">
               <BiLink /> <span>No Related Web Resources</span>
             </div>
-          )}
+          }
         </footer>
       </div>
 
-      {showLightbox && (
+      {showLightbox && 
         <FullscreenImage image={image} onClose={() => setShowLightbox(false)} />
-      )}
+      }
     </div>
-  );
-};
+  )
+
+}
 
 export default ItemCard;
