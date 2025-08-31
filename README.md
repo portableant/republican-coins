@@ -51,7 +51,7 @@ pip3 install -r requirements.txt
 
 **To get round Cloudflare, I use the `cloudscraper` library.** 
 
-To scrape the JSON data from the PAS website and convert it to CSV format, run the following commands. This takes the JSON search results and pages through the API, without being blocked by the Cloudflare javascript challenge. When I designed the PAS database, it was meant to be interoperable, machine readable and open to all. There's now no indexed finds recoreds on Google for instance!
+To scrape the JSON data from the PAS website and convert it to CSV format, run the following commands. This takes the JSON search results and pages through the API, without being blocked by the Cloudflare javascript challenge. When I designed the PAS database, it was meant to be interoperable, machine readable and open to all. There's now no indexed finds records on Google for instance! When I left the Scheme, over 700,000 pages were indexed and the system was engineered for low bandwidth council evironments. If I'd kept building it, it would be very different now, but Cool URIS, open data and interoperability would still be the key tenets. I created all the interlinked tables, dropdowns and mechanism for coin recording and linked them all off to Nomisma when possible.
 
 ```python
 cd scrapers
@@ -96,6 +96,10 @@ All the work for linked data and RDF was done in around 2010-2013 and is discuss
 * [Linking Portable Antiquities to a wider web](https://museologi.st/papers/linking-portable-antiquities-to-a-wider-web/)
 * [Portable Antiquities on the Web](https://museologi.st/papers/portable-antiquities-on-the-web/)
 * [Semantic Web Technologies Applied to Numismatic Collections](https://museologi.st/papers/semantic-web-technologies-applied-to-numismatic-collections/)
+
+If you're interested more in the numismatic side of these data then work by [Sam Moorhead](https://icomon.mini.icom.museum/wp-content/uploads/sites/20/2018/12/ViennaMoorhead.pdf), [Philippa Walton](https://discovery.ucl.ac.uk/id/eprint/1318144/1/1318144.pdf), [Roger Bland](https://icomon.mini.icom.museum/wp-content/uploads/sites/20/2018/12/BlandUtrechtFINAL.pdf), [Andrew Brown](https://insider.spink.com/2020/01/31/elementor-805/) and lately [Richard Henry](https://www.cambridge.org/core/journals/britannia/article/new-corpus-of-roman-coins-from-england-and-wales-an-overview-of-the-evidence-and-analysis-of-the-data/21B5675F3F8C51D63CC491E2E2FA0394) would be worth reviewing. 
+
+## What does a json feature look like?
 
 So one feature will look something like this:
 
