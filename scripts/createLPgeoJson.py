@@ -74,6 +74,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "manufacture": cleaned_row.get('manufactureTerm'),
                             "rrcType": cleaned_row.get('rrcType'),
                             "rrcID": cleaned_row.get('rrcID'),
+                            "ricID": cleaned_row.get('ricID'),
                             "reeceID": cleaned_row.get('reeceID'),
                             "nomismaIssuer": cleaned_row.get('rulerNomisma'),
                             "nomismaMint": cleaned_row.get('nomismaMintID'),
@@ -112,7 +113,15 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         feature['types'] = [
                             {
                                 "identifier": f"https://nomisma.org/id/{rrc_id.lower()}",
-                                "label": f"Nomisma type: {rrc_id.lower()}"
+                                "label": f"Nomisma RRC type: {rrc_id.lower()}"
+                            }
+                        ]
+                    ric_id = cleaned_row.get('ricID', '').strip()
+                    if ric_id:
+                        feature['types'] = [
+                            {
+                                "identifier": f"https://nomisma.org/id/{ric_id.lower()}",
+                                "label": f"Nomisma RIC type: {rrc_id.lower()}"
                             }
                         ]
                     # Add 'when' key only if 'fromDate' is present
