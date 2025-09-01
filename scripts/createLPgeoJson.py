@@ -112,7 +112,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                     if rrc_id:
                         feature['types'] = [
                             {
-                                "identifier": f"https://nomisma.org/id/{rrc_id.lower()}",
+                                "identifier": f"https://numismatics.org/crro/id/{rrc_id.lower()}",
                                 "label": f"Nomisma RRC type: {rrc_id.lower()}"
                             }
                         ]
@@ -120,7 +120,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                     if ric_id:
                         feature['types'] = [
                             {
-                                "identifier": f"https://nomisma.org/id/{ric_id.lower()}",
+                                "identifier": f"https://numismatics.org/ocre/id/{ric_id.lower()}",
                                 "label": f"Nomisma RIC type: {rrc_id.lower()}"
                             }
                         ]
@@ -181,7 +181,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         })
                     if nomisma_reece_id:
                         links.append({
-                            "identifier": f"https://nomisma.org/id/{nomisma_reece_id}",
+                            "identifier": f"https://nomisma.org/id/reece{nomisma_reece_id}",
                             "type": "seeAlso",
                             "label": "Nomisma Reece Period 1"
                         })
