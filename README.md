@@ -118,7 +118,7 @@ So one feature will look something like this:
         "findIdentifier": "finds-1227572",
         "objecttype": "COIN",
         "broadperiod": "ROMAN",
-        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19",
+        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31 BC) dating to 32-31 BC&nbsp;(Reece Period 1). LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19",
         "county": "Norfolk",
         "district": "South Norfolk",
         "parish": "Ditchingham",
@@ -177,7 +177,7 @@ So one feature will look something like this:
     }
 ```
 
-And rendered here as geoJSON:
+And rendered here as geoJSON (note point precision is either based off a 4 figure British National Grid Reference, or gecoded to a place name):
 
 
 ```geojson
