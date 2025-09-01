@@ -49,7 +49,7 @@ pip3 install -r requirements.txt
 
 ## Scrape JSON to CSV
 
-A working demo showing steps for this can be seen in `notebooks/obtainData.ipynb`.
+A working demo showing steps for this can be seen in `[notebooks/obtainData.ipynb](notebooks/obtainData.ipynb)`.
 
 **To get round Cloudflare, I use the `cloudscraper` library.** 
 
