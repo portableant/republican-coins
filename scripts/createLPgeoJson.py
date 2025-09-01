@@ -121,7 +121,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         feature['types'] = [
                             {
                                 "identifier": f"https://numismatics.org/ocre/id/{ric_id.lower()}",
-                                "label": f"Nomisma RIC type: {rrc_id.lower()}"
+                                "label": f"Nomisma RIC type: {ric_id.lower()}"
                             }
                         ]
                     # Add 'when' key only if 'fromDate' is present
