@@ -26,6 +26,12 @@
     {
       "name": "Material", "path": ["properties", "materialTerm"]
     },
+    {
+      "name": "County", "path": ["properties", "county"]
+    },
+    {
+      "name": "Institution", "path": ["properties", "institution"]
+    },
     "has_image",
     "type"
   ],
