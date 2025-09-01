@@ -49,6 +49,8 @@ pip3 install -r requirements.txt
 
 ## Scrape JSON to CSV
 
+A working demo showing steps for this can be seen in `notebooks/obtainData.ipynb`.
+
 **To get round Cloudflare, I use the `cloudscraper` library.** 
 
 To scrape the JSON data from the PAS website and convert it to CSV format, run the following commands. This takes the JSON search results and pages through the API, without being blocked by the Cloudflare javascript challenge. When I designed the PAS database, it was meant to be interoperable, machine readable and open to all. There's now no indexed finds records on Google for instance! When I left the Scheme, over 700,000 pages were indexed and the system was engineered for low bandwidth council evironments. If I'd kept building it, it would be very different now, but Cool URIS, open data and interoperability would still be the key tenets. I created all the interlinked tables, dropdowns and mechanism for coin recording and linked them all off to Nomisma when possible.
