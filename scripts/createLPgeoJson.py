@@ -22,14 +22,17 @@ def convert_csv_to_geojson(csv_file, geojson_file):
         with open(csv_file, mode='r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
+                # Create a new, cleaned row dictionary
+                cleaned_row = {key: value.replace(u'\xa0', u' ') if isinstance(value, str) else value for key, value in row.items()}
+                
                 try:
                     # Clean up and validate coordinates
-                    lat_str = row.get('fourFigureLat', '').strip()
-                    lon_str = row.get('fourFigureLon', '').strip()
+                    lat_str = cleaned_row.get('fourFigureLat', '').strip()
+                    lon_str = cleaned_row.get('fourFigureLon', '').strip()
 
                     # Skip records with empty or invalid coordinates
                     if not lat_str or not lon_str:
-                        print(f"Skipping row with findIdentifier '{row.get('findIdentifier', 'N/A')}' due to missing coordinates.")
+                        print(f"Skipping row with findIdentifier '{cleaned_row.get('findIdentifier', 'N/A')}' due to missing coordinates.")
                         continue
 
                     lat = float(lat_str)
@@ -37,7 +40,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
 
                     # Create a GeoJSON Feature
                     # Format 'created' date to YYYY
-                    created_raw = row.get('created')
+                    created_raw = cleaned_row.get('created')
                     created_year = None
                     if created_raw:
                         try:
@@ -48,48 +51,48 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             created_year = None
                     
                     feature = {
-                        "@id": f"https://finds.org.uk/database/artefacts/record/id/{row.get('id')}",
+                        "@id": f"https://finds.org.uk/database/artefacts/record/id/{cleaned_row.get('id')}",
                         "type": "Feature",
                         "geometry": {
                             "type": "Point",
                             "coordinates": [lon, lat]
                         },
                         "properties": {
-                            "findIdentifier": row.get('findIdentifier'),
-                            "oldFindID": row.get('old_findID'),
-                            "objecttype": row.get('objecttype'),
-                            "broadperiod": row.get('broadperiod'),
-                            "description": row.get('description'),
-                            "county": row.get('county'),
-                            "district": row.get('district'),
-                            "parish": row.get('parish'),
-                            "knownas": row.get('knownas'),
-                            "ruler": row.get('rulerName'),
-                            "moneyer": row.get('moneyerName'),
-                            "denomination": row.get('denominationName'),
-                            "mint": row.get('mintName'),
-                            "manufacture": row.get('manufactureTerm'),
-                            "rrcType": row.get('rrcType'),
-                            "rrcID": row.get('rrcID'),
-                            "reeceID": row.get('reeceID').
-                            "nomismaIssuer": row.get('rulerNomisma'),
-                            "nomismaMint": row.get('nomismaMintID'),
-                            "pleiadesID": row.get('pleiadesID'),
-                            "issuerDbPedia": row.get('rulerDbpedia'),
-                            "metal": row.get('metal'),
-                            "materialTerm": row.get('materialTerm'),
-                            "weight": row.get('weight'),
-                            "date_from": row.get('fromdate'),
-                            "date_to": row.get('todate'),
-                            "institution": row.get('institution'),
+                            "findIdentifier": cleaned_row.get('findIdentifier'),
+                            "oldFindID": cleaned_row.get('old_findID'),
+                            "objecttype": cleaned_row.get('objecttype'),
+                            "broadperiod": cleaned_row.get('broadperiod'),
+                            "description": cleaned_row.get('description'),
+                            "county": cleaned_row.get('county'),
+                            "district": cleaned_row.get('district'),
+                            "parish": cleaned_row.get('parish'),
+                            "knownas": cleaned_row.get('knownas'),
+                            "ruler": cleaned_row.get('rulerName'),
+                            "moneyer": cleaned_row.get('moneyerName'),
+                            "denomination": cleaned_row.get('denominationName'),
+                            "mint": cleaned_row.get('mintName'),
+                            "manufacture": cleaned_row.get('manufactureTerm'),
+                            "rrcType": cleaned_row.get('rrcType'),
+                            "rrcID": cleaned_row.get('rrcID'),
+                            "reeceID": cleaned_row.get('reeceID'),
+                            "nomismaIssuer": cleaned_row.get('rulerNomisma'),
+                            "nomismaMint": cleaned_row.get('nomismaMintID'),
+                            "pleiadesID": cleaned_row.get('pleiadesID'),
+                            "issuerDbPedia": cleaned_row.get('rulerDbpedia'),
+                            "metal": cleaned_row.get('metal'),
+                            "materialTerm": cleaned_row.get('materialTerm'),
+                            "weight": cleaned_row.get('weight'),
+                            "date_from": cleaned_row.get('fromdate'),
+                            "date_to": cleaned_row.get('todate'),
+                            "institution": cleaned_row.get('institution'),
                             "created": created_year,
                         }
                     }
-                    filename = row.get('filename', '').strip()
+                    filename = cleaned_row.get('filename', '').strip()
                     if filename:
                         baseurl = 'https://republican-coins.museologi.st/images/'
                         depiction_url = baseurl + filename
-                        oldfindID = row.get('old_findID', '').strip()
+                        oldfindID = cleaned_row.get('old_findID', '').strip()
                         feature['depictions'] = [
                             {
                                 "@id": depiction_url,
@@ -97,14 +100,14 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                                 "label": f"A depiction of {oldfindID}"
                             }
                         ]
-                    description = row.get('description', '').strip()
+                    description = cleaned_row.get('description', '').strip()
                     if description:
                         feature['descriptions'] = [
                             {
                                 "value": description
                             }
                         ]
-                    rrc_id = row.get('rrcID', '').strip()
+                    rrc_id = cleaned_row.get('rrcID', '').strip()
                     if rrc_id:
                         feature['types'] = [
                             {
@@ -113,9 +116,9 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             }
                         ]
                     # Add 'when' key only if 'fromDate' is present
-                    from_date = row.get('fromdate', '').strip().split('.')[0]
+                    from_date = cleaned_row.get('fromdate', '').strip().split('.')[0]
                     if from_date:
-                        to_date = row.get('todate', '').strip().split('.')[0]
+                        to_date = cleaned_row.get('todate', '').strip().split('.')[0]
                         if to_date:
                             feature['when'] = {
                                 "timespans": [
@@ -140,14 +143,15 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             }
 
                     links = []
-                    pleiades_id = row.get('pleiadesID', '').strip()
+                    pleiades_id = cleaned_row.get('pleiadesID', '').strip()
                     if pleiades_id and pleiades_id.replace('.', '', 1).isdigit():
                         pleiades_id = str(int(float(pleiades_id)))
-                    nomisma_mint_id = row.get('nomismaMintID', '').strip()
-                    moneyer_id = row.get('moneyerID', '').strip()
-                    dbpedia_issuer = row.get('rulerDbpedia', '').strip()    
-                    nomisma_issuer = row.get('rulerNomisma', '').strip()
-                    nomisma_reece_period = row.get('reeceID', '').strip()
+                    nomisma_mint_id = cleaned_row.get('nomismaMintID', '').strip()
+                    moneyer_id = cleaned_row.get('moneyerID', '').strip()
+                    dbpedia_issuer = cleaned_row.get('rulerDbpedia', '').strip()
+                    nomisma_issuer = cleaned_row.get('rulerNomisma', '').strip()
+                    nomisma_reece_id = cleaned_row.get('reeceID', '').strip()
+
                     if nomisma_issuer:
                         links.append({
                             "identifier": f"https://nomisma.org/id/{nomisma_issuer}",
@@ -166,7 +170,7 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                             "type": "seeAlso",
                             "label": f"Nomisma mint {nomisma_mint_id}"
                         })
-                    if(nomisma_reece_id):
+                    if nomisma_reece_id:
                         links.append({
                             "identifier": f"https://nomisma.org/id/{nomisma_reece_id}",
                             "type": "seeAlso",
@@ -182,29 +186,27 @@ def convert_csv_to_geojson(csv_file, geojson_file):
                         links.append({
                             "identifier": f"https://dbpedia.org/resource/{dbpedia_issuer}",
                             "type": "seeAlso",
-                            "label": f"DBpedia resource for  {dbpedia_issuer}"
+                            "label": f"DBpedia resource for {dbpedia_issuer}"
                         })
                     if links:
                         feature['links'] = links
 
                     geojson['features'].append(feature)
                 except (ValueError, TypeError) as e:
-                    print(f"Skipping row with findIdentifier '{row.get('findIdentifier', 'N/A')}' due to invalid coordinate data: {e}")
+                    print(f"Skipping row with findIdentifier '{cleaned_row.get('findIdentifier', 'N/A')}' due to invalid coordinate data: {e}")
                     continue
 
         with open(geojson_file, 'w', encoding='utf-8') as f:
             json.dump(geojson, f, indent=2, ensure_ascii=False)
-                        
+            
         print(f"\nSuccessfully converted {len(geojson['features'])} valid records to {geojson_file}")
-                            
+            
     except FileNotFoundError:
         print(f"Error: The file '{csv_file}' was not found.")
-    except Exception as e:  
+    except Exception as e:
         print(f"An unexpected error occurred: {e}")
-                            
-if __name__ == "__main__":  
+            
+if __name__ == "__main__":
     input_csv = "../data/geocoded.csv"
     output_geojson = "../data/republican.geojson"
     convert_csv_to_geojson(input_csv, output_geojson)
-                            
-                            
