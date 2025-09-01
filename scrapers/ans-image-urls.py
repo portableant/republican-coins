@@ -205,5 +205,5 @@ if __name__ == "__main__":
     ]
     
     # Run the function
-    output_file = "republican_coin_images.csv"
+    output_file = "../data/republican_coin_images.csv"
     fetch_and_combine_images(rrc_ids, output_file)
