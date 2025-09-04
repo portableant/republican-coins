@@ -17,6 +17,9 @@
     {
       "name": "Mint", "path": ["properties", "mint"]
     },
+    {  
+      "name": "Object Type", "path": ["properties", "objecttype"]
+    },
     {
       "name": "Issuer", "path": ["properties", "ruler"]
     },
