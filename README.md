@@ -107,62 +107,62 @@ So one feature will look something like this:
 
 ```txt
 {
-      "@id": "https://finds.org.uk/database/artefacts/record/id/1227572",
+      "@id": "https://finds.org.uk/database/artefacts/record/id/757656",
       "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.44280915,
-          52.45778299
+          -0.11395435,
+          51.50376016
         ]
       },
       "properties": {
-        "findIdentifier": "finds-1227572",
+        "findIdentifier": "finds-757656",
+        "oldFindID": "LON-00A134",
         "objecttype": "COIN",
         "broadperiod": "ROMAN",
-        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31 BC) dating to 32-31 BC&nbsp;(Reece Period 1). LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19",
-        "county": "Norfolk",
-        "district": "South Norfolk",
-        "parish": "Ditchingham",
-        "knownas": "",
+        "description": "Roman Republican silver denarius, moneyer C. Cato, mint Rome 123.BC, Reece period 1. Reverse is Victory, right, in biga. legend (C.CATO); [ROMA] in exergue.\n\n\n\nWeight: 2.36g\nDiameter: 17.45mm",
+        "county": "Greater London Authority",
+        "district": "City and County of the City of London",
+        "parish": "Castle Baynard",
         "ruler": "Republic",
-        "moneyer": "Antonius, M.",
+        "moneyer": "Porcius Cato, C.",
+        "moneyerNomismaID": "c_cato_rrc",
         "denomination": "Denarius (Roman Republic)",
-        "mint": "Moving with Republican issuer",
+        "mint": "Rome",
         "manufacture": "Struck or hammered",
-        "rrcType": null,
-        "rrcID": "rrc-544.19",
-        "nomismaIssuer": "",
-        "nomismaMint": "",
-        "pleiadesID": "",
-        "issuerDbPedia": "",
-        "metal": null,
+        "reeceID": "1",
+        "nomismaMint": "rome",
+        "pleiadesID": "423025",
         "materialTerm": "Silver",
-        "weight": "3.23",
-        "date_from": null,
-        "date_to": null,
-        "institution": "NMS",
-        "created": "2025"
+        "weight": "2.36",
+        "date_from": "-123",
+        "date_to": "-123",
+        "axis": "12",
+        "discovery": "Metal detector",
+        "institution": "LON",
+        "created": "2015"
       },
-      "descriptions": [
+      "depictions": [
         {
-          "value": "A Roman silver Republican denarius of Mark Antony (43-31& BC) dating to 32-31 BC (Reece Period 1). ;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint. As RRC 544/19"
+          "@id": "https://republican-coins.museologi.st/images/DenariusLON00A134.jpg",
+          "thumbnail": "https://republican-coins.museologi.st/images/DenariusLON00A134.jpg",
+          "label": "A depiction of LON-00A134"
         }
       ],
-      "types": [
+      "descriptions": [
         {
-          "identifier": "https://nomisma.org/id/rrc-544.19",
-          "label": "Nomisma type: rrc-544.19"
+          "value": "Roman Republican silver denarius, moneyer C. Cato, mint Rome 123.BC, Reece period 1. Reverse is Victory, right, in biga. legend (C.CATO); [ROMA] in exergue.\n\n\n\nWeight: 2.36g\nDiameter: 17.45mm"
         }
       ],
       "when": {
         "timespans": [
           {
             "start": {
-              "in": "-32"
+              "in": "-123"
             },
             "end": {
-              "in": "-31"
+              "in": "-123"
             }
           }
         ],
@@ -175,7 +175,29 @@ So one feature will look something like this:
         "label": "for a century during the Roman period",
         "certainty": "certain",
         "duration": "P100Y"
-      }
+      },
+      "links": [
+        {
+          "identifier": "https://pleiades.stoa.org/places/423025",
+          "type": "seeAlso",
+          "label": "Pleiades place: 423025"
+        },
+        {
+          "identifier": "https://nomisma.org/id/rome",
+          "type": "seeAlso",
+          "label": "Nomisma mint: rome"
+        },
+        {
+          "identifier": "https://nomisma.org/id/reece1",
+          "type": "seeAlso",
+          "label": "Nomisma Reece Period: 1"
+        },
+        {
+          "identifier": "https://nomisma.org/id/c_cato_rrc",
+          "type": "seeAlso",
+          "label": "Nomisma moneyer: Porcius Cato, C."
+        }
+      ]
     }
 ```
 
@@ -184,62 +206,62 @@ And rendered here as geoJSON (note point precision is either based off a 4 figur
 
 ```geojson
 {
-      "@id": "https://finds.org.uk/database/artefacts/record/id/1227572",
+      "@id": "https://finds.org.uk/database/artefacts/record/id/757656",
       "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.44280915,
-          52.45778299
+          -0.11395435,
+          51.50376016
         ]
       },
       "properties": {
-        "findIdentifier": "finds-1227572",
+        "findIdentifier": "finds-757656",
+        "oldFindID": "LON-00A134",
         "objecttype": "COIN",
         "broadperiod": "ROMAN",
-        "description": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19",
-        "county": "Norfolk",
-        "district": "South Norfolk",
-        "parish": "Ditchingham",
-        "knownas": "",
+        "description": "Roman Republican silver denarius, moneyer C. Cato, mint Rome 123.BC, Reece period 1. Reverse is Victory, right, in biga. legend (C.CATO); [ROMA] in exergue.\n\n\n\nWeight: 2.36g\nDiameter: 17.45mm",
+        "county": "Greater London Authority",
+        "district": "City and County of the City of London",
+        "parish": "Castle Baynard",
         "ruler": "Republic",
-        "moneyer": "Antonius, M.",
+        "moneyer": "Porcius Cato, C.",
+        "moneyerNomismaID": "c_cato_rrc",
         "denomination": "Denarius (Roman Republic)",
-        "mint": "Moving with Republican issuer",
+        "mint": "Rome",
         "manufacture": "Struck or hammered",
-        "rrcType": null,
-        "rrcID": "rrc-544.19",
-        "nomismaIssuer": "",
-        "nomismaMint": "",
-        "pleiadesID": "",
-        "issuerDbPedia": "",
-        "metal": null,
+        "reeceID": "1",
+        "nomismaMint": "rome",
+        "pleiadesID": "423025",
         "materialTerm": "Silver",
-        "weight": "3.23",
-        "date_from": null,
-        "date_to": null,
-        "institution": "NMS",
-        "created": "2025"
+        "weight": "2.36",
+        "date_from": "-123",
+        "date_to": "-123",
+        "axis": "12",
+        "discovery": "Metal detector",
+        "institution": "LON",
+        "created": "2015"
       },
-      "descriptions": [
+      "depictions": [
         {
-          "value": "A Roman&nbsp;silver&nbsp;Republican denarius of Mark Antony (43-31&nbsp;BC) dating to 32-31 BC&nbsp;(Reece Period 1).&nbsp;&nbsp;LEG VI reverse depicting Aquila between two standards. Border of dots. Travelling mint.&nbsp;As RRC 544/19"
+          "@id": "https://republican-coins.museologi.st/images/DenariusLON00A134.jpg",
+          "thumbnail": "https://republican-coins.museologi.st/images/DenariusLON00A134.jpg",
+          "label": "A depiction of LON-00A134"
         }
       ],
-      "types": [
+      "descriptions": [
         {
-          "identifier": "https://nomisma.org/id/rrc-544.19",
-          "label": "Nomisma type: rrc-544.19"
+          "value": "Roman Republican silver denarius, moneyer C. Cato, mint Rome 123.BC, Reece period 1. Reverse is Victory, right, in biga. legend (C.CATO); [ROMA] in exergue.\n\n\n\nWeight: 2.36g\nDiameter: 17.45mm"
         }
       ],
       "when": {
         "timespans": [
           {
             "start": {
-              "in": "32.0"
+              "in": "-123"
             },
             "end": {
-              "in": "31.0"
+              "in": "-123"
             }
           }
         ],
@@ -252,7 +274,29 @@ And rendered here as geoJSON (note point precision is either based off a 4 figur
         "label": "for a century during the Roman period",
         "certainty": "certain",
         "duration": "P100Y"
-      }
+      },
+      "links": [
+        {
+          "identifier": "https://pleiades.stoa.org/places/423025",
+          "type": "seeAlso",
+          "label": "Pleiades place: 423025"
+        },
+        {
+          "identifier": "https://nomisma.org/id/rome",
+          "type": "seeAlso",
+          "label": "Nomisma mint: rome"
+        },
+        {
+          "identifier": "https://nomisma.org/id/reece1",
+          "type": "seeAlso",
+          "label": "Nomisma Reece Period: 1"
+        },
+        {
+          "identifier": "https://nomisma.org/id/c_cato_rrc",
+          "type": "seeAlso",
+          "label": "Nomisma moneyer: Porcius Cato, C."
+        }
+      ]
     }
 ```
 
