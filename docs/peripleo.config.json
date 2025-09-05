@@ -11,14 +11,14 @@
     }
   ],
   "facets": [
+    {  
+      "name": "Object Type", "path": ["properties", "objecttype"]
+    },
     {
       "name": "Denomination", "path": ["properties", "denomination"]
     },
     {
       "name": "Mint", "path": ["properties", "mint"]
-    },
-    {  
-      "name": "Object Type", "path": ["properties", "objecttype"]
     },
     {
       "name": "Issuer", "path": ["properties", "ruler"]
@@ -34,6 +34,15 @@
     },
     {
       "name": "Institution", "path": ["properties", "institution"]
+    },
+    {
+      "name": "Discovery method", "path": ["properties", "discovery"]
+    },
+    {
+      "name": "Die Axis", "path": ["properties", "axis"]
+    },
+    {
+      "name": "Year recorded", "path": ["properties", "created"]
     },
     "has_image",
     "type"
