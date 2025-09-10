@@ -3,3 +3,7 @@ os-sys
 cloudscraper
 pandas
 requests
+sckit-learn
+tensorflow
+numpy
+Pillow
